@@ -1,0 +1,82 @@
+<!doctype html>
+
+<html lang="en" ng-app="ourTodoApp">
+<head>
+  <meta charset="utf-8">
+  <title ng-controller="title_controller">{{ title }}</title>
+  
+</head>
+<body >
+  <h1>Our Todo App</h1>
+  <!-- <menu-directive></menu-directive> -->
+
+  <form name="thisForm" novalidate ng-submit="thisForm.$dirty && thisForm.$valid && submit()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" ng-model="user" required><br>
+    <!-- Display error message, if any (reference via 'name' attribute) -->
+    <div ng-show="thisForm.username.$touched && thisForm.username.$invalid">
+       <span ng-show="thisForm.username.$error.required">This field is required</span>
+    </div>
+ 
+    <label for="password">Password:</label>
+    <input type="password" name="password" ng-model="passwd" required ng-pattern="/[a-zA-Z]{4,16}/"><br>
+    <div ng-show="thisForm.password.$touched && thisForm.password.$invalid">
+       <span ng-show="thisForm.password.$error.required">This field is required</span>
+       <span ng-show="thisForm.password.$error.pattern">4 to 16 letters</span>
+    </div>
+ 
+    <input type="submit">
+  </form>
+ 
+  <!-- <div ng-controller="TodoCrtl">
+      <table>
+        <tr>
+          <td><input ng-model="message" placeholder="Type a message" value="message" ></td>
+          <td><button ng-click="submit()">Submit</button>&nbsp;<button ng-click="submit1()">Submit1</button>&nbsp;<button ng-click="addToList()">Add To List</button></td>
+        </tr>
+      </table>
+
+      <span>{{ report }}</span>
+      
+        <ol ng-repeat="el in arrList">
+         {{$index + 1}} {{el }}
+        </ol>
+
+        
+      
+  </div>
+
+  <div ng-controller="serviceController">
+    <span>Services</span>
+
+    <div ng-repeat="comment in response | limitTo: '{{ more }}'" style="padding:5px;border:1px solid green;border-radius:5px;margin:5px 0px">
+      < <p>Completed:{{comment.completed}}</p>>
+      <p>User Id:{{comment.userId}}</p>
+      <p>Album Id:{{comment.id}}</p>
+      <p>Title:{{comment.title}}</p>
+      <p><img ng-src="{{comment.thumbnailUrl}}" alt="Description" /></p>
+    </div>
+
+    <div>
+      <button ng-click="mores()">More...</button>
+    </div> -->
+      
+
+    <!-- <ol ng-repeat="el in arrList">
+      {{$index + 1}} {{el }}
+     </ol> -->
+  </div>
+  
+    <p></p>
+     
+    <div ng-view></div>
+  
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.js"></script>
+<script src="module.js"></script>
+<script src="controllers.js"></script>
+<script src="routes.js"></script>
+<script src="directives.js"></script>
+</body>
+</html>

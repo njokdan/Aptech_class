@@ -1,0 +1,13 @@
+<span ng-include="'menu.html'"></span>
+<h2>Welcome to Users Page</h2>
+
+<div ng-controller="userController">
+    <span>User List</span>
+
+    <div ng-repeat="user in users" style="padding:5px;border:1px solid green;border-radius:5px;margin:5px 0px">
+       <p>Full Name:{{user.name}}</p>
+      <p>Email:{{user.email}}</p>
+      <p>Mobile:{{user.phone}}</p>
+      <p>Website:{{user.website}}</p>
+    </div>
+</div>

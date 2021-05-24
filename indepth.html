@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- ngEg_repeat.html -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example: AngularJS ng-repeat</title>
+</head>
+ 
+<body ng-app="myApp" ng-controller="myCtrl">
+  <h1>My Cafe</h1>
+  <ol>
+    <!-- Apply AngularJS filter 'currency' -->
+    <li ng-repeat="item in cafe | orderBy:'price'">{{ item.desc + ', ' + (item.price | currency) }}</li>
+  </ol>
+  <hr>
+  <ol>
+    <!-- Apply AngularJS filter 'orderBy' -->
+    <li ng-repeat="item in cafe | orderBy:'price'">{{ item.desc + ', ' + item.price }}</li>
+  </ol>
+  <hr>
+  <ol>
+    <!-- Apply AngularJS filter 'limitTo' -->
+    <li ng-repeat="item in cafe | limitTo:'2'">{{ item.desc + ', ' + item.price }}</li>
+  </ol>
+  <hr>
+  <ol>
+    <!-- Apply AngularJS filter 'filter' to search for item containing 'p' -->
+    <li ng-repeat="item in cafe | filter:'p'">{{ item.desc + ', ' + item.price }}</li>
+  </ol>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+<script>
+// Define an AugularJS app module
+var app = angular.module('myApp', []);
+ 
+// Define the controller for this app module
+app.controller('myCtrl', ['$scope', function($scope) {
+   $scope.cafe = [
+      {desc: 'Cappuccino', price: 3.29},
+      {desc: 'Caffe Latte', price: 3.99},
+      {desc: 'Espresso', price: 3.19}
+   ];
+}]);
+</script>
+</body>
+</html>

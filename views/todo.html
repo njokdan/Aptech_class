@@ -1,0 +1,13 @@
+<span ng-include="'menu.html'"></span>
+<h2>Welcome to Todo Page</h2>
+
+<div ng-controller="todoController">
+    <span>Post List</span>
+
+    <div ng-repeat="todo in todos" style="padding:5px;border:1px solid green;border-radius:5px;margin:5px 0px">
+     
+      <p>Title:{{todo.title}}</p>
+      <p>Completed[?]:{{todo.completed}}</p>
+      
+    </div>
+</div>
